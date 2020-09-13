@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Loader;
@@ -68,7 +69,7 @@ namespace TestHelpers.CodeGenerator
                 throw new ArgumentException("You must specify an input");
 
             if (!inputSourceCode.Contains("using System"))
-                return $"namespace TestHelpers.CodeGenerator {{ using System; {inputSourceCode} }}";
+                return $"namespace TestHelpers.CodeGenerator {{ using System; using System.Collections.Generic;  {inputSourceCode} }}";
 
             return inputSourceCode;
         }
@@ -94,8 +95,7 @@ namespace TestHelpers.CodeGenerator
             var references = new MetadataReference[]
             {
                 MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
-                MetadataReference.CreateFromFile(typeof(System.Runtime.AssemblyTargetedPatchBandAttribute).Assembly.Location),
-                MetadataReference.CreateFromFile(typeof(Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo).Assembly.Location),
+                MetadataReference.CreateFromFile(typeof(List<>).Assembly.Location), 
             };
 
             var compilation = CSharpCompilation.Create(
