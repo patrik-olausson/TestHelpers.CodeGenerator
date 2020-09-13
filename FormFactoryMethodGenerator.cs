@@ -17,6 +17,8 @@ namespace TestHelpers.CodeGenerator
 
         private void textBoxInput_KeyUp(object sender, KeyEventArgs e)
         {
+            if (checkBoxGenerateOnPaste.Checked == false) return;
+
             if (IsPasteCommand(e))
                 GenerateCode();
 
@@ -37,7 +39,11 @@ namespace TestHelpers.CodeGenerator
                 {
                     textBoxInput.Clear();
                     textBoxInput.Focus();
-                    Clipboard.SetText(result.Output);
+
+                    if (checkBoxCopyOutputToClipboard.Checked)
+                    {
+                        Clipboard.SetText(result.Output);
+                    }
                 }
                 textBoxOutput.Text = result.Output;
                 textBoxInput.ReadOnly = false;
