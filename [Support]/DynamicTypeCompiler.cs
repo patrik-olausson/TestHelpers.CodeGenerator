@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Loader;
 using System.Text;
+using System.Xml.Serialization;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Emit;
@@ -69,7 +70,11 @@ namespace TestHelpers.CodeGenerator
                 throw new ArgumentException("You must specify an input");
 
             if (!inputSourceCode.Contains("using System"))
-                return $"namespace TestHelpers.CodeGenerator {{ using System; using System.Collections.Generic;  {inputSourceCode} }}";
+                return @$"namespace TestHelpers.CodeGenerator {{ 
+using System; 
+using System.Collections.Generic;  
+using System.Xml.Serialization;
+{inputSourceCode} }}";
 
             return inputSourceCode;
         }
@@ -92,10 +97,14 @@ namespace TestHelpers.CodeGenerator
             var options = CSharpParseOptions.Default.WithLanguageVersion(LanguageVersion.CSharp9);
             var parsedSyntaxTree = SyntaxFactory.ParseSyntaxTree(codeString, options);
 
+            var dotnetAssembliesPath = Path.GetDirectoryName(typeof(object).Assembly.Location);
+            
             var references = new MetadataReference[]
             {
                 MetadataReference.CreateFromFile(typeof(object).Assembly.Location),
                 MetadataReference.CreateFromFile(typeof(List<>).Assembly.Location), 
+                MetadataReference.CreateFromFile(typeof(XmlAttributeAttribute).Assembly.Location),
+                MetadataReference.CreateFromFile(Path.Combine(dotnetAssembliesPath, "System.Runtime.dll")), 
             };
 
             var compilation = CSharpCompilation.Create(
