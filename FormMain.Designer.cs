@@ -29,6 +29,7 @@ namespace TestHelpers.CodeGenerator
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.userControlFactoryMethodGenerator1 = new TestHelpers.CodeGenerator.UserControlFactoryMethodGenerator();
@@ -95,6 +96,7 @@ namespace TestHelpers.CodeGenerator
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1026, 787);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "TestHelpers - Code Utils";
             this.tabControl1.ResumeLayout(false);
