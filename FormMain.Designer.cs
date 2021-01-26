@@ -31,10 +31,12 @@ namespace TestHelpers.CodeGenerator
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.userControlFactoryMethodGenerator1 = new TestHelpers.CodeGenerator.UserControlFactoryMethodGenerator();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.userControlEncoding1 = new TestHelpers.CodeGenerator.UserControlEncoding();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -60,8 +62,17 @@ namespace TestHelpers.CodeGenerator
             this.tabPage1.Text = "Factory methods";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // userControlFactoryMethodGenerator1
+            // 
+            this.userControlFactoryMethodGenerator1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlFactoryMethodGenerator1.Location = new System.Drawing.Point(3, 3);
+            this.userControlFactoryMethodGenerator1.Name = "userControlFactoryMethodGenerator1";
+            this.userControlFactoryMethodGenerator1.Size = new System.Drawing.Size(1012, 753);
+            this.userControlFactoryMethodGenerator1.TabIndex = 0;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.userControlEncoding1);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -70,13 +81,13 @@ namespace TestHelpers.CodeGenerator
             this.tabPage2.Text = "Encoding";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // userControlFactoryMethodGenerator1
+            // userControlEncoding1
             // 
-            this.userControlFactoryMethodGenerator1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.userControlFactoryMethodGenerator1.Location = new System.Drawing.Point(3, 3);
-            this.userControlFactoryMethodGenerator1.Name = "userControlFactoryMethodGenerator1";
-            this.userControlFactoryMethodGenerator1.Size = new System.Drawing.Size(1012, 753);
-            this.userControlFactoryMethodGenerator1.TabIndex = 0;
+            this.userControlEncoding1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlEncoding1.Location = new System.Drawing.Point(3, 3);
+            this.userControlEncoding1.Name = "userControlEncoding1";
+            this.userControlEncoding1.Size = new System.Drawing.Size(1012, 753);
+            this.userControlEncoding1.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -88,6 +99,7 @@ namespace TestHelpers.CodeGenerator
             this.Text = "TestHelpers - Code Utils";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -98,5 +110,6 @@ namespace TestHelpers.CodeGenerator
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private UserControlFactoryMethodGenerator userControlFactoryMethodGenerator1;
+        private UserControlEncoding userControlEncoding1;
     }
 }
