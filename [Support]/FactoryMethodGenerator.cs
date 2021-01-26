@@ -79,7 +79,7 @@ namespace TestHelpers.CodeGenerator
                     HandleProperty(
                         property,
                         "bool",
-                        "false");
+                        "true");
                 else if (propertyType == typeof(string))
                     HandleProperty(
                         property,
